@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURL: 'http://3.64.79.115:8080/api/v1/',
+
+  //Firebase settings
+  dbURL: 'https://shoppingfun-d94a6.firebaseio.com/',
+  apiKey: 'AIzaSyBKe67oDtdaCvRQI_lWIyYElYQHtYqhdKc'
 };
 
 /*

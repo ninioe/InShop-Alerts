@@ -1,0 +1,29 @@
+#mainContainer {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    overflow-y: auto;
+
+    .alert-row {
+        background-color: #4b4848;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+
+    .time-ago {
+        float: right;
+    }
+
+    .alert-body {
+        position: relative;
+
+        .dell-alert {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}

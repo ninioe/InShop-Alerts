@@ -1,0 +1,19 @@
+.jumbotron{
+    background-color: navy;
+    color: white;
+    position: relative;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    .jumb-bottom{
+        position: absolute;
+        bottom: 0;
+        left: 8px;
+        right: 8px;
+        bottom: 0;
+        height: 30px;
+        background-color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+}

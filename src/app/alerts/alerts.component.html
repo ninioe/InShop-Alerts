@@ -1,0 +1,58 @@
+<div id="mainContainer">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">InShop Alerts</a>
+    <button class="navbar-toggler" type="button" (click)="collapsed = !collapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse" [class.collapse]="collapsed">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link">{{authUser.firstName}} {{authUser.lastName}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pointer" (click)="onLogout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 mx-auto">
+        <form [formGroup]="sendAlertForm" (ngSubmit)="onSendAlert(sendAlertForm)">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title" placeholder="Enter title">
+            <div class="text-danger" *ngIf="f.title.invalid && isSubmited">
+              <span *ngIf="f.title.hasError('required')">Title is missing</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <input type="text" class="form-control" id="message" formControlName="message" placeholder="Enter message">
+            <div class="text-danger" *ngIf="f.message.invalid && isSubmited">
+              <span *ngIf="f.message.hasError('required')">Message is missing</span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Alert</button>
+        </form>      
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <div *ngFor="let a of alerts" class="row alert-row">
+      <div class="col-1">
+        <i class="fa fa-bell-o fa-2x"></i>
+      </div>
+      <div class="col-11 alert-body">
+        <div class="time-ago text-muted">{{a.timestamp | timeAgo}}</div>
+        <div>{{a.title}}</div>
+        <p>{{a.message}}</p>
+        <i class="fa fa-trash-o pointer dell-alert" (click)="onDeleteAlert(a.id)"></i>
+      </div>
+    </div>
+  </div>
+</div>
